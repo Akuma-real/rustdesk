@@ -958,7 +958,7 @@ fn get_api_server_(api: String, custom: String) -> String {
             return format!("http://{}", s);
         }
     }
-    "http://221.236.27.74:22024".to_owned()
+    "http://47.122.123.99:21114".to_owned()
 }
 
 pub fn get_audit_server(api: String, custom: String, typ: String) -> String {

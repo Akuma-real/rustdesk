@@ -85,7 +85,19 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
               _svcIsUsingPublicServer.value),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [],
+            children: [
+              InkWell(
+                onTap: () => launchUrlString('http://47.122.123.99:21114/'),
+                child: Text(
+                  'API管理后台',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       );

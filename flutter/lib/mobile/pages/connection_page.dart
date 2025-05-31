@@ -87,6 +87,7 @@ class _ConnectionPageState extends State<ConnectionPage> {
           if (!bind.isCustomClient() && !isIOS)
             Obx(() => _buildUpdateUI(stateGlobal.updateUrl.value)),
           _buildRemoteIDTextField(),
+          _buildApiLinkWidget(),
         ])),
         SliverFillRemaining(
           hasScrollBody: true,
@@ -115,6 +116,42 @@ class _ConnectionPageState extends State<ConnectionPage> {
       _idEditingController.selection =
           TextSelection(baseOffset: 0, extentOffset: textLength);
     }
+  }
+
+  /// UI for API management link.
+  Widget _buildApiLinkWidget() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 8),
+      child: InkWell(
+        onTap: () => launchUrl(Uri.parse('http://47.122.123.99:21114/')),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+            borderRadius: BorderRadius.circular(13),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.admin_panel_settings,
+                color: Colors.blue,
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                'API管理后台',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   /// UI for software update.
